@@ -1,0 +1,91 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {},
+      "host": {}
+    }
+  },
+  "packages": {
+    "DevNAS.UmoEditor.Domain.Shared": {
+      "path": "src/DevNAS.UmoEditor.Domain.Shared/DevNAS.UmoEditor.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "DevNAS.UmoEditor.Domain": {
+      "path": "src/DevNAS.UmoEditor.Domain/DevNAS.UmoEditor.Domain.abppkg",
+      "folder": "src"
+    },
+    "DevNAS.UmoEditor.Application.Contracts": {
+      "path": "src/DevNAS.UmoEditor.Application.Contracts/DevNAS.UmoEditor.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "DevNAS.UmoEditor.Application": {
+      "path": "src/DevNAS.UmoEditor.Application/DevNAS.UmoEditor.Application.abppkg",
+      "folder": "src"
+    },
+    "DevNAS.UmoEditor.EntityFrameworkCore": {
+      "path": "src/DevNAS.UmoEditor.EntityFrameworkCore/DevNAS.UmoEditor.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "DevNAS.UmoEditor.MongoDB": {
+      "path": "src/DevNAS.UmoEditor.MongoDB/DevNAS.UmoEditor.MongoDB.abppkg",
+      "folder": "src"
+    },
+    "DevNAS.UmoEditor.HttpApi": {
+      "path": "src/DevNAS.UmoEditor.HttpApi/DevNAS.UmoEditor.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "DevNAS.UmoEditor.HttpApi.Client": {
+      "path": "src/DevNAS.UmoEditor.HttpApi.Client/DevNAS.UmoEditor.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "DevNAS.UmoEditor.TestBase": {
+      "path": "test/DevNAS.UmoEditor.TestBase/DevNAS.UmoEditor.TestBase.abppkg",
+      "folder": "test"
+    },
+    "DevNAS.UmoEditor.EntityFrameworkCore.Tests": {
+      "path": "test/DevNAS.UmoEditor.EntityFrameworkCore.Tests/DevNAS.UmoEditor.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "DevNAS.UmoEditor.MongoDB.Tests": {
+      "path": "test/DevNAS.UmoEditor.MongoDB.Tests/DevNAS.UmoEditor.MongoDB.Tests.abppkg",
+      "folder": "test"
+    },
+    "DevNAS.UmoEditor.Domain.Tests": {
+      "path": "test/DevNAS.UmoEditor.Domain.Tests/DevNAS.UmoEditor.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "DevNAS.UmoEditor.Application.Tests": {
+      "path": "test/DevNAS.UmoEditor.Application.Tests/DevNAS.UmoEditor.Application.Tests.abppkg",
+      "folder": "test"
+    },
+    "DevNAS.UmoEditor.HttpApi.Host": {
+      "path": "host/DevNAS.UmoEditor.HttpApi.Host/DevNAS.UmoEditor.HttpApi.Host.abppkg",
+      "folder": "host"
+    },
+    "DevNAS.UmoEditor.Web": {
+      "path": "src/DevNAS.UmoEditor.Web/DevNAS.UmoEditor.Web.abppkg",
+      "folder": "src"
+    },
+    "DevNAS.UmoEditor.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/DevNAS.UmoEditor.HttpApi.Client.ConsoleTestApp/DevNAS.UmoEditor.HttpApi.Client.ConsoleTestApp.abppkg",
+      "folder": "test"
+    },
+    "DevNAS.UmoEditor.Web.Host": {
+      "path": "host/DevNAS.UmoEditor.Web.Host/DevNAS.UmoEditor.Web.Host.abppkg",
+      "folder": "host"
+    },
+    "DevNAS.UmoEditor.AuthServer": {
+      "path": "host/DevNAS.UmoEditor.AuthServer/DevNAS.UmoEditor.AuthServer.abppkg",
+      "folder": "host"
+    },
+    "DevNAS.UmoEditor.Host.Shared": {
+      "path": "host/DevNAS.UmoEditor.Host.Shared/DevNAS.UmoEditor.Host.Shared.abppkg",
+      "folder": "host"
+    },
+    "DevNAS.UmoEditor.Web.Unified": {
+      "path": "host/DevNAS.UmoEditor.Web.Unified/DevNAS.UmoEditor.Web.Unified.abppkg",
+      "folder": "host"
+    }
+  }
+}

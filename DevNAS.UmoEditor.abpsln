@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "DevNAS.UmoEditor": {
+      "path": "DevNAS.UmoEditor.abpmdl"
+    }
+  }
+}

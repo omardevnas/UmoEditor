@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>DevNAS.UmoEditor</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="9.3.6" />
+    <ProjectReference Include="..\DevNAS.UmoEditor.Application.Contracts\DevNAS.UmoEditor.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
