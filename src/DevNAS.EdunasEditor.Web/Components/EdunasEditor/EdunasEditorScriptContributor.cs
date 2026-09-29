@@ -30,7 +30,7 @@ public class EdunasEditorScriptContributor : BundleContributor
 {
     public override Task ConfigureBundleAsync(BundleConfigurationContext context)
     {
-        context.Files.AddIfNotContains("/wwwroot/umo/umo-editor-bundle.js");
+        context.Files.AddIfNotContains("/umo/umo-editor-bundle.js");
         context.Files.AddIfNotContains("/Components/EdunasEditor/umo-loader.js");
         return Task.CompletedTask;
     }
