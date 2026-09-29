@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
-using DevNAS.UmoEditor.EntityFrameworkCore;
 using DevNAS.UmoEditor.MultiTenancy;
 using DevNAS.UmoEditor.Web;
 using Microsoft.OpenApi.Models;
@@ -46,9 +45,6 @@ namespace DevNAS.UmoEditor;
 
 [DependsOn(
     typeof(UmoEditorWebModule),
-    typeof(UmoEditorApplicationModule),
-    typeof(UmoEditorHttpApiModule),
-    typeof(UmoEditorEntityFrameworkCoreModule),
     typeof(AbpAuditLoggingEntityFrameworkCoreModule),
     typeof(AbpAutofacModule),
     typeof(AbpAccountWebModule),
@@ -93,9 +89,7 @@ public class UmoEditorWebUnifiedModule : AbpModule
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
                 options.FileSets.ReplaceEmbeddedByPhysical<UmoEditorDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}DevNAS.UmoEditor.Domain.Shared", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<UmoEditorDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}DevNAS.UmoEditor.Domain", Path.DirectorySeparatorChar)));
                 options.FileSets.ReplaceEmbeddedByPhysical<UmoEditorApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}DevNAS.UmoEditor.Application.Contracts", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<UmoEditorApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}DevNAS.UmoEditor.Application", Path.DirectorySeparatorChar)));
                 options.FileSets.ReplaceEmbeddedByPhysical<UmoEditorWebModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}DevNAS.UmoEditor.Web", Path.DirectorySeparatorChar)));
             });
         }

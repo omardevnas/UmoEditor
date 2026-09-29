@@ -46,9 +46,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\DevNAS.UmoEditor.Application\DevNAS.UmoEditor.Application.csproj" />
-    <ProjectReference Include="..\..\src\DevNAS.UmoEditor.HttpApi\DevNAS.UmoEditor.HttpApi.csproj" />
-    <ProjectReference Include="..\..\src\DevNAS.UmoEditor.EntityFrameworkCore\DevNAS.UmoEditor.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\src\DevNAS.UmoEditor.Web\DevNAS.UmoEditor.Web.csproj" />
     <ProjectReference Include="..\DevNAS.UmoEditor.Host.Shared\DevNAS.UmoEditor.Host.Shared.csproj" />
   </ItemGroup>
