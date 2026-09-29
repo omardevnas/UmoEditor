@@ -30,7 +30,7 @@ public class UmoEditorViewerScriptContributor : BundleContributor
 {
     public override Task ConfigureBundleAsync(BundleConfigurationContext context)
     {
-        context.Files.AddIfNotContains("/Components/UmoEditor/wwwroot/umo/umo-viewer-bundle.js");
+        context.Files.AddIfNotContains("/wwwroot/umo/umo-viewer-bundle.js");
         return Task.CompletedTask;
     }
 }

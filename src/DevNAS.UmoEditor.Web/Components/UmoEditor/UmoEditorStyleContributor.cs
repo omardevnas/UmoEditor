@@ -19,7 +19,7 @@ public class UmoEditorStyleContributor : BundleContributor
 {
     public override Task ConfigureBundleAsync(BundleConfigurationContext context)
     {
-        context.Files.AddIfNotContains("/Components/UmoEditor/wwwroot/umo/umo-editor-bundle.css");
+        context.Files.AddIfNotContains("/wwwroot/umo/umo-editor-bundle.css");
 
         // Must come AFTER the bundle: these rules undo host-theme CSS that reaches into the
         // widget's DOM (e.g. Lepton pinning Umo's <header class="umo-toolbar"> to the top of

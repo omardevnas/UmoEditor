@@ -23,7 +23,7 @@ public class UmoEditorViewerStyleContributor : BundleContributor
 {
     public override Task ConfigureBundleAsync(BundleConfigurationContext context)
     {
-        context.Files.AddIfNotContains("/Components/UmoEditor/wwwroot/umo/umo-editor-bundle.css");
+        context.Files.AddIfNotContains("/wwwroot/umo/umo-editor-bundle.css");
         return Task.CompletedTask;
     }
 }
