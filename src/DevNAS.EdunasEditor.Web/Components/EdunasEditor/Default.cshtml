@@ -1,0 +1,62 @@
+@using System.Text.Json
+@using DevNAS.EdunasEditor.Web.Components.EdunasEditor
+@model EdunasEditorViewModel
+@{
+    // NOTE: this view no longer emits <abp-script-bundle>/<abp-style-bundle> itself. The consuming
+    // PAGE must register EdunasEditorScriptContributor and EdunasEditorStyleContributor in its own
+    // bundle (see this component's XML docs and Pages/EdunasEditor/Index.cshtml for an example).
+    //
+    // Self-emission was removed because it cannot be made correct:
+    //   * It double-loaded. A page that legitimately registers the contributors in its page bundle
+    //     - which display-only pages MUST do, since they never invoke this component - would then
+    //     get the bundle twice. The second execution re-creates window.DevNasUmo and the loader's
+    //     instance WeakMap, so the loader's scan no longer recognises already-mounted elements and
+    //     mounts a SECOND Vue app into each one.
+    //   * It re-emitted on every AJAX widget refresh, because the HttpContext.Items guard it used
+    //     is per-request, re-running a 3 MB bundle on each partial reload.
+    // Contributors have neither problem: ABP resolves them by type and emits each file once.
+
+    object? initialJson = null;
+    if (!string.IsNullOrWhiteSpace(Model.ValueJson))
+    {
+        initialJson = JsonSerializer.Deserialize<JsonElement>(Model.ValueJson);
+    }
+
+    var widgetOptions = new
+    {
+        value = initialJson,
+        locale = Model.Locale ?? EdunasEditorLocale.En,
+        readOnly = Model.ReadOnly,
+        toolbar = Model.Toolbar == EdunasEditorToolbarMode.None ? "none" : "full",
+        revealAnswer = Model.RevealAnswer,
+    };
+    var optionsJson = JsonSerializer.Serialize(widgetOptions);
+    var cssClass = "devnas-umo-editor-root" + (string.IsNullOrWhiteSpace(Model.CssClass) ? "" : " " + Model.CssClass);
+
+    var rendersOwnField = !string.IsNullOrWhiteSpace(Model.FormFieldName);
+    var bindsExistingField = !string.IsNullOrWhiteSpace(Model.BoundFieldId);
+
+    if (rendersOwnField && bindsExistingField)
+    {
+        // Both would put two ids into data-devnas-umo-editor-form-field's slot and silently sync
+        // only one of them. Fail loudly instead of guessing which the caller meant.
+        throw new InvalidOperationException(
+            $"{nameof(EdunasEditorViewModel)}: set either {nameof(Model.FormFieldName)} (render a new " +
+            $"hidden field) or {nameof(Model.BoundFieldId)} (sync an existing one), not both.");
+    }
+
+    // The element the loader keeps in sync. Either the textarea rendered below, or a field the
+    // consuming page already owns.
+    var syncedFieldId = rendersOwnField ? Model.Id + "-value" : Model.BoundFieldId;
+}
+
+<div id="@Model.Id"
+     class="@cssClass"
+     data-devnas-umo-editor
+     data-devnas-umo-editor-options="@optionsJson"
+     data-devnas-umo-editor-form-field="@syncedFieldId"></div>
+
+@if (rendersOwnField)
+{
+    <textarea name="@Model.FormFieldName" id="@syncedFieldId" style="display:none">@Model.ValueJson</textarea>
+}
