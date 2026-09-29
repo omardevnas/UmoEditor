@@ -1,0 +1,48 @@
+/*
+ * Host-theme collision fixes for the DevNAS UmoEditor widget.
+ *
+ * Kept in a SEPARATE file from the vendored umo-editor-bundle.css on purpose: that file is
+ * build output from the standalone umo-build project and gets overwritten wholesale on every
+ * rebuild, so hand-edits there would be lost. Loaded after it by UmoEditorStyleContributor.
+ *
+ * These are not Umo bugs. They are cases where a host's global theme CSS reaches into the
+ * widget's DOM, so they belong to this ABP integration layer rather than to the editor fork.
+ *
+ * -------------------------------------------------------------------------------------------
+ * 1. Lepton theme: `header` pinned to the top of the viewport
+ * -------------------------------------------------------------------------------------------
+ * Umo lays its editor out as three semantic children of .umo-editor-container:
+ *   <header class="umo-toolbar">  <main class="umo-main">  <footer class="umo-footer">
+ * and the container is `display:flex; flex-direction:column; position:relative`, so all three
+ * are expected to stay in normal flow.
+ *
+ * ABP's Lepton theme styles the BARE `header` element selector for its own top navbar -
+ * identically in every skin (lepton1..6):
+ *
+ *   header { background:...; background-attachment:fixed; background-size:cover;
+ *            position:fixed; left:0; top:0; right:0; z-index:102; transition:all .3s }
+ *
+ * Umo's <header class="umo-toolbar"> matches it, so the toolbar gets pulled out of flow and
+ * pinned across the top of the viewport instead of sitting above the editor. Umo's own rules
+ * never set `position` on .umo-toolbar, so nothing competes and the theme wins uncontested.
+ *
+ * Verified against the real lepton1.min.css + umo-editor-bundle.css in a browser: without
+ * this rule the toolbar computes to position:fixed/top:0 and renders at viewport y=0 while
+ * its editor sits lower down; with it, position:static and the two are flush.
+ *
+ * `header` is the only bare element selector in Lepton that sets positioning, and `main` /
+ * `footer` have no bare rules at all, so the toolbar is the only casualty.
+ *
+ * Class-based selectors (specificity 0,2,0) beat the bare element selector (0,0,1), so this
+ * does not depend on stylesheet load order. Scoped to .devnas-umo-editor-root - the class
+ * Default.cshtml puts on every embedding - so it never touches a host's real page header.
+ */
+.devnas-umo-editor-root .umo-toolbar {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    z-index: auto;
+    background-attachment: scroll;
+    transition: none;
+}

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using DevNAS.UmoEditor.Localization;
 using Volo.Abp.UI.Navigation;
 
 namespace DevNAS.UmoEditor.Web.Menus;
@@ -15,8 +16,9 @@ public class UmoEditorMenuContributor : IMenuContributor
 
     private Task ConfigureMainMenuAsync(MenuConfigurationContext context)
     {
-        //Add main menu items.
-        context.Menu.AddItem(new ApplicationMenuItem(UmoEditorMenus.Prefix, displayName: "UmoEditor", "~/UmoEditor", icon: "fa fa-globe"));
+        var l = context.GetLocalizer<UmoEditorResource>();
+
+        context.Menu.AddItem(new ApplicationMenuItem(UmoEditorMenus.UmoEditor, l["Menu:UmoEditor"], "~/UmoEditor", icon: "fa fa-file-word-o"));
 
         return Task.CompletedTask;
     }

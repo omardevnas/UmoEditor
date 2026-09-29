@@ -2,6 +2,7 @@
   "culture": "ar",
   "texts": {
     "MyAccount": "إدارة ملفى",
-    "SamplePageMessage": "صفحة نموذجية للوحدة النمطية UmoEditor"
+    "SamplePageMessage": "عرض توضيحي لمحرر EduNAS",
+    "Menu:UmoEditor": "محرر EduNAS"
   }
 }

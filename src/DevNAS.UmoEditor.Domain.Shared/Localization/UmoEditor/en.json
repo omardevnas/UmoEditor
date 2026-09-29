@@ -2,6 +2,7 @@
   "culture": "en",
   "texts": {
     "MyAccount":  "My account",
-    "SamplePageMessage": "A sample page for the UmoEditor module"
+    "SamplePageMessage": "EduNAS Editor demo",
+    "Menu:UmoEditor": "EduNAS Editor"
   }
 }
