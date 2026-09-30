@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace DevNAS.EdunasEditor.Web.Components.EdunasEditor;
 
@@ -31,6 +32,26 @@ public class EdunasEditorViewModel
     /// <summary><see cref="EdunasEditorToolbarMode.None"/> hides Umo's ribbon
     /// toolbar (e.g. for a read-only student-view mirror).</summary>
     public EdunasEditorToolbarMode Toolbar { get; set; } = EdunasEditorToolbarMode.Full;
+
+    /// <summary>
+    /// Toolbar item keys to show in ADDITION to the fixed basic set (bold, italic, font, lists,
+    /// alignment, etc. - see the fork's <c>basic-toolbar-items.js</c> for the exact list). Every
+    /// embedding gets the basic set for free; this is purely additive, so there is no way to
+    /// accidentally hide a basic item by passing a partial list here.
+    /// <para>
+    /// Keys match the fork's own toolbar item names (e.g. <c>"image"</c>, <c>"table"</c>,
+    /// <c>"math"</c>) - see UmoEditor-Toolbar-Items.md for the full catalog by tab. Requesting an
+    /// item from a non-Base tab (e.g. <c>"image"</c>, which lives on Insert) also needs that tab's
+    /// own name (e.g. <c>"insert"</c>) in the same list, or the tab it lives on never appears.
+    /// </para>
+    /// <para>
+    /// UI-only: unlike disabling an extension outright, an item left out of both the basic set and
+    /// this list still has its underlying extension registered, so content using it - authored
+    /// elsewhere, pasted in, or from before this restriction existed - still renders correctly.
+    /// Only the toolbar button for authoring new content with it is hidden.
+    /// </para>
+    /// </summary>
+    public IEnumerable<string>? ExtraToolbarItems { get; set; }
 
     /// <summary>Whether the Fill-in-the-Blank node reveals its answer (author
     /// view) or renders a blanked-out placeholder (student view).</summary>

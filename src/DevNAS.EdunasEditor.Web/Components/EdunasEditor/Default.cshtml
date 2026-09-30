@@ -29,6 +29,9 @@
         readOnly = Model.ReadOnly,
         toolbar = Model.Toolbar == EdunasEditorToolbarMode.None ? "none" : "full",
         revealAnswer = Model.RevealAnswer,
+        // Additive on top of the fork's fixed basic set (basic-toolbar-items.js) - never a
+        // full replace, so there is no way to pass a partial list here and lose a basic item.
+        extraToolbarItems = Model.ExtraToolbarItems ?? Array.Empty<string>(),
     };
     var optionsJson = JsonSerializer.Serialize(widgetOptions);
     var cssClass = "devnas-umo-editor-root" + (string.IsNullOrWhiteSpace(Model.CssClass) ? "" : " " + Model.CssClass);
