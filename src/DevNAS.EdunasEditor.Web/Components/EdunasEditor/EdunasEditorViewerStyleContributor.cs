@@ -10,7 +10,7 @@ namespace DevNAS.EdunasEditor.Web.Components.EdunasEditor;
 /// This intentionally points at the SAME <c>umo-editor-bundle.css</c> the authoring widget uses,
 /// rather than emitting a second viewer-specific stylesheet. Umo's content styles are rooted at
 /// <c>.umo-editor-content</c> (verified against the built CSS), and
-/// <c>DevNasUmoViewer.render()</c> wraps its generated markup in exactly that class — so the
+/// <c>DevNasEdunasViewer.render()</c> wraps its generated markup in exactly that class — so the
 /// authoring stylesheet already styles rendered output correctly. A separate viewer stylesheet
 /// would be a near-identical ~480 kB duplicate.
 /// </para>

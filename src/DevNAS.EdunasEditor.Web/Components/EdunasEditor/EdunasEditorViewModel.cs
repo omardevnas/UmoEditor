@@ -12,7 +12,7 @@ namespace DevNAS.EdunasEditor.Web.Components.EdunasEditor;
 public class EdunasEditorViewModel
 {
     /// <summary>DOM id for the widget root. Auto-generated if not set.</summary>
-    public string Id { get; set; } = "devnas-umo-editor-" + Guid.NewGuid().ToString("N");
+    public string Id { get; set; } = "devnas-edunas-editor-" + Guid.NewGuid().ToString("N");
 
     /// <summary>Initial content as a serialized ProseMirror JSON string (the
     /// widget's only supported content format — Umo has no markdown import

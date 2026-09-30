@@ -34,10 +34,10 @@
  * `footer` have no bare rules at all, so the toolbar is the only casualty.
  *
  * Class-based selectors (specificity 0,2,0) beat the bare element selector (0,0,1), so this
- * does not depend on stylesheet load order. Scoped to .devnas-umo-editor-root - the class
+ * does not depend on stylesheet load order. Scoped to .devnas-edunas-editor-root - the class
  * Default.cshtml puts on every embedding - so it never touches a host's real page header.
  */
-.devnas-umo-editor-root .umo-toolbar {
+.devnas-edunas-editor-root .umo-toolbar {
     position: static;
     top: auto;
     left: auto;

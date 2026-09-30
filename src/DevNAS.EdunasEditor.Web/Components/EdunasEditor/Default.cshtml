@@ -9,7 +9,7 @@
     // Self-emission was removed because it cannot be made correct:
     //   * It double-loaded. A page that legitimately registers the contributors in its page bundle
     //     - which display-only pages MUST do, since they never invoke this component - would then
-    //     get the bundle twice. The second execution re-creates window.DevNasUmo and the loader's
+    //     get the bundle twice. The second execution re-creates window.DevNasEdunas and the loader's
     //     instance WeakMap, so the loader's scan no longer recognises already-mounted elements and
     //     mounts a SECOND Vue app into each one.
     //   * It re-emitted on every AJAX widget refresh, because the HttpContext.Items guard it used
@@ -34,14 +34,14 @@
         extraToolbarItems = Model.ExtraToolbarItems ?? Array.Empty<string>(),
     };
     var optionsJson = JsonSerializer.Serialize(widgetOptions);
-    var cssClass = "devnas-umo-editor-root" + (string.IsNullOrWhiteSpace(Model.CssClass) ? "" : " " + Model.CssClass);
+    var cssClass = "devnas-edunas-editor-root" + (string.IsNullOrWhiteSpace(Model.CssClass) ? "" : " " + Model.CssClass);
 
     var rendersOwnField = !string.IsNullOrWhiteSpace(Model.FormFieldName);
     var bindsExistingField = !string.IsNullOrWhiteSpace(Model.BoundFieldId);
 
     if (rendersOwnField && bindsExistingField)
     {
-        // Both would put two ids into data-devnas-umo-editor-form-field's slot and silently sync
+        // Both would put two ids into data-devnas-edunas-editor-form-field's slot and silently sync
         // only one of them. Fail loudly instead of guessing which the caller meant.
         throw new InvalidOperationException(
             $"{nameof(EdunasEditorViewModel)}: set either {nameof(Model.FormFieldName)} (render a new " +
@@ -55,9 +55,9 @@
 
 <div id="@Model.Id"
      class="@cssClass"
-     data-devnas-umo-editor
-     data-devnas-umo-editor-options="@optionsJson"
-     data-devnas-umo-editor-form-field="@syncedFieldId"></div>
+     data-devnas-edunas-editor
+     data-devnas-edunas-editor-options="@optionsJson"
+     data-devnas-edunas-editor-form-field="@syncedFieldId"></div>
 
 @if (rendersOwnField)
 {
