@@ -40,9 +40,10 @@ public class EdunasEditorViewModel
     /// accidentally hide a basic item by passing a partial list here.
     /// <para>
     /// Keys match the fork's own toolbar item names (e.g. <c>"image"</c>, <c>"table"</c>,
-    /// <c>"math"</c>) - see UmoEditor-Toolbar-Items.md for the full catalog by tab. Requesting an
-    /// item from a non-Base tab (e.g. <c>"image"</c>, which lives on Insert) also needs that tab's
-    /// own name (e.g. <c>"insert"</c>) in the same list, or the tab it lives on never appears.
+    /// <c>"math"</c>) - see UmoEditor-Toolbar-Items.md for the full catalog by tab. Just list the
+    /// item: requesting <c>"image"</c> (which lives on Insert) auto-reveals the Insert tab too, via
+    /// the fork's own item-to-tab lookup (toolbar-item-tabs.js) - no need to separately request
+    /// the tab by name.
     /// </para>
     /// <para>
     /// UI-only: unlike disabling an extension outright, an item left out of both the basic set and
